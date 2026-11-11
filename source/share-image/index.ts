@@ -5,7 +5,8 @@ import type { ShareImageElement, ShareImageOptions } from "@sharadox/metadata-we
 export const SHARE_IMAGE_SIZE = { width: 1200, height: 630 } as const;
 
 /**
- * Renders a share card (Open Graph and Twitter image) from JSX with the given fonts, as a PNG response. Use it in
+ * Renders a share card (Open Graph and Twitter image) from JSX as a PNG response, with the given fonts or, without
+ * any, Next.js's built-in default font. Use it in
  * `opengraph-image.tsx` and `twitter-image.tsx`; the design stays in the site's own library.
  *
  * @example
@@ -15,7 +16,8 @@ export const SHARE_IMAGE_SIZE = { width: 1200, height: 630 } as const;
  */
 export function shareImage(
   element: ShareImageElement,
-  { width = SHARE_IMAGE_SIZE.width, height = SHARE_IMAGE_SIZE.height, fonts = [] }: ShareImageOptions = {},
+  { width = SHARE_IMAGE_SIZE.width, height = SHARE_IMAGE_SIZE.height, fonts }: ShareImageOptions = {},
 ): ImageResponse {
-  return new ImageResponse(element, { width, height, fonts });
+  // An empty font list would replace the default font and leave nothing to lay text out with.
+  return new ImageResponse(element, fonts?.length ? { width, height, fonts } : { width, height });
 }

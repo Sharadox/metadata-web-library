@@ -12,6 +12,7 @@ export interface ShareImageOptions {
   /** 1200×630 by default, the size Open Graph and Twitter cards expect. */
   width?: number;
   height?: number;
+  /** Next.js's built-in default font when none are given. */
   fonts?: ShareImageFont[];
 }
 
