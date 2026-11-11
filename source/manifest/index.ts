@@ -11,7 +11,7 @@ export const DEFAULT_ICONS: NonNullable<WebManifestOptions["icons"]> = [
 
 /**
  * The web app manifest of an installable, online-only site: it opens in its own window (`standalone`), with a
- * stable id, its colours and icons. No service worker or offline support is involved.
+ * stable id, its colors and icons. No service worker or offline support is involved.
  *
  * @example
  * // src/app/manifest.ts
