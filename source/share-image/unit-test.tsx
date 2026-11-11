@@ -5,10 +5,12 @@ vi.mock("next/og", () => ({ ImageResponse }));
 const { SHARE_IMAGE_SIZE, shareImage } = await import("@sharadox/metadata-web-library/share-image");
 
 describe("shareImage", () => {
-  test("renders at the share-card size by default", () => {
+  test("renders at the share-card size with the default font by default", () => {
     const element = <div>Sharadox</div>;
     shareImage(element);
-    expect(ImageResponse).toHaveBeenLastCalledWith(element, { width: 1200, height: 630, fonts: [] });
+    expect(ImageResponse).toHaveBeenLastCalledWith(element, { width: 1200, height: 630 });
+    shareImage(element, { fonts: [] });
+    expect(ImageResponse).toHaveBeenLastCalledWith(element, { width: 1200, height: 630 });
     expect(SHARE_IMAGE_SIZE).toEqual({ width: 1200, height: 630 });
   });
 

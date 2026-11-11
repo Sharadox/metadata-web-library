@@ -1,6 +1,6 @@
 {
   "name": "@sharadox/metadata-web-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Everything search engines, share cards and installation need: page metadata, sitemaps, robots rules, web app manifests, JSON-LD structured data and share images for Next.js.",
   "private": false,
   "license": "SEE LICENSE IN LICENCA.md",
