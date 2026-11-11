@@ -7,7 +7,7 @@ export interface WebManifestOptions {
   id?: string;
   /** "/" by default. */
   startUrl?: string;
-  /** Splash and window colours. */
+  /** Splash and window colors. */
   backgroundColor: string;
   themeColor: string;
   /**

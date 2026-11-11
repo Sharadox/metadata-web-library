@@ -8,4 +8,4 @@
 - `/manifest` webManifest({ name, shortName?, description?, id? = "/", startUrl? = "/", backgroundColor, themeColor, icons? = DEFAULT_ICONS }) → standalone, online-only
 - `/structured-data` <StructuredData data /> ; `/structured-data-graph` structuredDataGraph(...nodes)
 - `/share-image` shareImage(jsx, { width?, height?, fonts? }) → ImageResponse; SHARE_IMAGE_SIZE 1200x630
-- Peer deps: next, react. Licence: Sharadox Open Source Licence 0.1.0
+- Peer deps: next, react. License: Sharadox Open Source License 0.1.0
