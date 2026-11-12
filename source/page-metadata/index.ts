@@ -11,7 +11,7 @@ import type { PageMetadataOptions } from "@sharadox/metadata-web-library/page-me
  * export async function generateMetadata({ params }) {
  *   const { locale } = await params;
  *   return pageMetadata({ name: "Sharadox", url: "https://sharadox.com", locales: LOCALES, locale,
- *     title: "Sharadox • Technologies that simplify the world", description: "…" });
+ *     title: "Sharadox · Technologies that simplify the world", description: "…" });
  * }
  */
 export function pageMetadata<Locale extends string>({

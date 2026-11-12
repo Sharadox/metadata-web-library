@@ -27,9 +27,9 @@ export async function generateMetadata({ params }) {
     url: "https://sharadox.com",
     locales: LOCALES,
     locale,
-    title: "Sharadox • Technologies that simplify the world",
+    title: "Sharadox · Technologies that simplify the world",
     description: "…",
-    titleTemplate: "%s • Sharadox",
+    titleTemplate: "%s · Sharadox",
   });
 }
 ```
