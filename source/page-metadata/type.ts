@@ -15,7 +15,7 @@ export interface PageMetadataOptions<Locale extends string> {
   description: string;
   /** The path after the locale, for example "/contact"; the home page by default. */
   path?: string;
-  /** How sub-pages build their titles from this one; `%s` is the sub-page's title. Default: "%s | <name>" (brands pass their own separator). */
+  /** How sub-pages build their titles from this one; `%s` is the sub-page's title. Default: "%s · <name>", with the shared separator. */
   titleTemplate?: string;
   keywords?: readonly string[];
   /** False keeps the page out of search engines (previews, demos). True by default. */

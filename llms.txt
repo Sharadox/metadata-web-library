@@ -2,10 +2,12 @@
 
 > SEO/share/install metadata for Next.js App Router sites, built on @sharadox/internationalization-web-library locales.
 
-- `/page-metadata` pageMetadata({ name, url, locales, locale, title, description, path?, titleTemplate? = "%s | name", keywords?, indexable? = true }) → Metadata (metadataBase, title template, canonical, hreflang alternates incl. x-default, openGraph with locale/alternateLocale, twitter summary_large_image, robots, formatDetection)
+- `/page-metadata` pageMetadata({ name, url, locales, locale, title, description, path?, titleTemplate? = "%s · name" (shared SEPARATOR), keywords?, indexable? = true }) → Metadata (metadataBase, title template, canonical, hreflang alternates incl. x-default, openGraph with locale/alternateLocale, twitter summary_large_image, robots, formatDetection, publisher, appleWebApp title)
 - `/sitemap` localizedSitemap({ url, locales, paths? = [""], priority?, otherPriority?, changeFrequency? = "monthly", lastModified? })
 - `/robots` robots({ url, indexable })
 - `/manifest` webManifest({ name, shortName?, description?, id? = "/", startUrl? = "/", backgroundColor, themeColor, icons? = DEFAULT_ICONS }) → standalone, online-only
 - `/structured-data` <StructuredData data /> ; `/structured-data-graph` structuredDataGraph(...nodes)
 - `/share-image` shareImage(jsx, { width?, height?, fonts? }) → ImageResponse; SHARE_IMAGE_SIZE 1200x630
 - Peer deps: next, react. License: Sharadox Open Source License 0.1.0
+- `/llms-text` llmsText({ title, summary, details?, sections: [{ title, lines, style?: "list" | "numbered" | "plain" }] }) → Markdown llms.txt
+- `/security-text` securityText({ contact (string or list), canonical, expires? = build + 1 year, preferredLanguages?, policy? }) → RFC 9116 text for /.well-known/security.txt
