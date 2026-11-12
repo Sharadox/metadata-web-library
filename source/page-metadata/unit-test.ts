@@ -7,7 +7,7 @@ const base = {
   name: "Sharadox",
   url: "https://sharadox.com",
   locales: LOCALES,
-  title: "Sharadox • Simple",
+  title: "Sharadox · Simple",
   description: "Studio.",
 };
 
@@ -16,13 +16,15 @@ describe("pageMetadata", () => {
     const metadata = pageMetadata({ ...base, locale: "pt", keywords: ["brand"] });
     expect(metadata.metadataBase).toEqual(new URL("https://sharadox.com"));
     expect(metadata).toMatchObject({
-      title: { default: "Sharadox • Simple", template: "%s | Sharadox" },
+      title: { default: "Sharadox · Simple", template: "%s · Sharadox" },
       description: "Studio.",
       applicationName: "Sharadox",
+      publisher: "Sharadox",
+      appleWebApp: { title: "Sharadox", statusBarStyle: "black-translucent" },
       keywords: ["brand"],
       alternates: { canonical: "/pt", languages: { en: "/en", pt: "/pt", "x-default": "/en" } },
       openGraph: { type: "website", url: "/pt", locale: "pt_PT", alternateLocale: ["en_GB"], siteName: "Sharadox" },
-      twitter: { card: "summary_large_image", title: "Sharadox • Simple" },
+      twitter: { card: "summary_large_image", title: "Sharadox · Simple" },
       robots: { index: true, follow: true },
       formatDetection: { telephone: false },
     });
@@ -33,14 +35,14 @@ describe("pageMetadata", () => {
       ...base,
       locale: "en",
       path: "/contact",
-      titleTemplate: "%s • Sharadox",
+      titleTemplate: "%s · Sharadox",
       indexable: false,
     });
     expect(metadata.alternates).toEqual({
       canonical: "/en/contact",
       languages: { en: "/en/contact", pt: "/pt/contact", "x-default": "/en/contact" },
     });
-    expect(metadata.title).toEqual({ default: "Sharadox • Simple", template: "%s • Sharadox" });
+    expect(metadata.title).toEqual({ default: "Sharadox · Simple", template: "%s · Sharadox" });
     expect(metadata.robots).toEqual({ index: false, follow: false });
     expect(metadata).not.toHaveProperty("keywords");
   });
