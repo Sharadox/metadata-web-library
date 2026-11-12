@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SEPARATOR } from "@sharadox/web-library/text/separator";
 import type { PageMetadataOptions } from "@sharadox/metadata-web-library/page-metadata/type";
 
 /**
@@ -21,7 +22,7 @@ export function pageMetadata<Locale extends string>({
   title,
   description,
   path = "",
-  titleTemplate = `%s | ${name}`,
+  titleTemplate = `%s ${SEPARATOR} ${name}`,
   keywords,
   indexable = true,
 }: PageMetadataOptions<Locale>): Metadata {
@@ -33,6 +34,9 @@ export function pageMetadata<Locale extends string>({
     applicationName: name,
     authors: [{ name, url }],
     creator: name,
+    publisher: name,
+    // The name under the icon when the site is added to an iPhone's home screen.
+    appleWebApp: { title: name, statusBarStyle: "black-translucent" },
     ...(keywords ? { keywords: [...keywords] } : {}),
     alternates: { canonical: address, languages: locales.alternates(path) },
     openGraph: {

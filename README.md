@@ -66,6 +66,8 @@ export default async function Image() {
 | `…/structured-data`       | `<StructuredData data>` (escapes `<`)                                                                                                                                                             |
 | `…/structured-data-graph` | `structuredDataGraph(...nodes)` → `{ "@context", "@graph" }`                                                                                                                                      |
 | `…/share-image`           | `shareImage(element, { width?, height?, fonts? })`, `SHARE_IMAGE_SIZE` (1200×630)                                                                                                                 |
+| `…/llms-text`             | `llmsText({ title, summary, details?, sections: [{ title, lines, style? }] })` → the site's `llms.txt` (llmstxt.org) for AI assistants                                                            |
+| `…/security-text`         | `securityText({ contact, canonical, expires?, preferredLanguages?, policy? })` → `/.well-known/security.txt` (RFC 9116), valid a year from the build                                              |
 
 ## Develop
 
