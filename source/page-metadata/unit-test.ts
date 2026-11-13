@@ -46,4 +46,17 @@ describe("pageMetadata", () => {
     expect(metadata.robots).toEqual({ index: false, follow: false });
     expect(metadata).not.toHaveProperty("keywords");
   });
+
+  test("gives sub-pages the share card they would otherwise lose", () => {
+    const metadata = pageMetadata({
+      ...base,
+      locale: "en",
+      path: "/privacy",
+      image: { path: "/en/opengraph-image", alt: "Sharadox" },
+    });
+    expect(metadata.openGraph).toMatchObject({
+      images: [{ url: "/en/opengraph-image", width: 1200, height: 630, alt: "Sharadox" }],
+    });
+    expect(metadata.twitter).toMatchObject({ images: [{ url: "/en/opengraph-image", alt: "Sharadox" }] });
+  });
 });

@@ -25,6 +25,7 @@ export function pageMetadata<Locale extends string>({
   titleTemplate = `%s ${SEPARATOR} ${name}`,
   keywords,
   indexable = true,
+  image,
 }: PageMetadataOptions<Locale>): Metadata {
   const address = locales.localePath(locale, path);
   return {
@@ -49,8 +50,14 @@ export function pageMetadata<Locale extends string>({
       alternateLocale: locales.locales
         .filter((other) => other !== locale)
         .map((other) => locales.openGraphLocale(other)),
+      ...(image ? { images: [{ url: image.path, width: 1200, height: 630, alt: image.alt }] } : {}),
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(image ? { images: [{ url: image.path, alt: image.alt }] } : {}),
+    },
     robots: indexable
       ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } }
       : { index: false, follow: false },
