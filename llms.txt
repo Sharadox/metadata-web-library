@@ -2,7 +2,7 @@
 
 > SEO/share/install metadata for Next.js App Router sites, built on @sharadox/internationalization-web-library locales.
 
-- `/page-metadata` pageMetadata({ name, url, locales, locale, title, description, path?, titleTemplate? = "%s · name" (shared SEPARATOR), keywords?, indexable? = true }) → Metadata (metadataBase, title template, canonical, hreflang alternates incl. x-default, openGraph with locale/alternateLocale, twitter summary_large_image, robots, formatDetection, publisher, appleWebApp title)
+- `/page-metadata` pageMetadata({ name, url, locales, locale, title, description, path?, titleTemplate? = "%s · name" (shared SEPARATOR), keywords?, indexable? = true, image? { path, alt } (share card for sub-pages, which otherwise lose it) }) → Metadata (metadataBase, title template, canonical, hreflang alternates incl. x-default, openGraph with locale/alternateLocale, twitter summary_large_image, robots, formatDetection, publisher, appleWebApp title)
 - `/sitemap` localizedSitemap({ url, locales, paths? = [""], priority?, otherPriority?, changeFrequency? = "monthly", lastModified? })
 - `/robots` robots({ url, indexable })
 - `/manifest` webManifest({ name, shortName?, description?, id? = "/", startUrl? = "/", backgroundColor, themeColor, icons? = DEFAULT_ICONS }) → standalone, online-only

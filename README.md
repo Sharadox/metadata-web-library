@@ -59,7 +59,7 @@ export default async function Image() {
 
 | Import                    | Export                                                                                                                                                                                            |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `…/page-metadata`         | `pageMetadata({ name, url, locales, locale, title, description, path?, titleTemplate?, keywords?, indexable? })` → Next.js `Metadata`                                                             |
+| `…/page-metadata`         | `pageMetadata({ name, url, locales, locale, title, description, path?, titleTemplate?, keywords?, indexable?, image? })` → Next.js `Metadata`                                                     |
 | `…/sitemap`               | `localizedSitemap({ url, locales, paths?, priority?, otherPriority?, changeFrequency?, lastModified? })`                                                                                          |
 | `…/robots`                | `robots({ url, indexable })`                                                                                                                                                                      |
 | `…/manifest`              | `webManifest({ name, shortName?, description?, id?, startUrl?, backgroundColor, themeColor, icons? })`, `DEFAULT_ICONS` (`/icon.svg`, `/icon-192.png`, `/icon-512.png`, `/icon-maskable-512.png`) |

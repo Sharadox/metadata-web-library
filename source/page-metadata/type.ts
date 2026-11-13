@@ -18,6 +18,11 @@ export interface PageMetadataOptions<Locale extends string> {
   /** How sub-pages build their titles from this one; `%s` is the sub-page's title. Default: "%s · <name>", with the shared separator. */
   titleTemplate?: string;
   keywords?: readonly string[];
+  /**
+   * The share card for this page, for example `{ path: "/en/opengraph-image", alt: "Sharadox" }`. Pages below the one
+   * that holds the card files need it: their own metadata would otherwise leave them without a share image.
+   */
+  image?: { path: string; alt: string };
   /** False keeps the page out of search engines (previews, demos). True by default. */
   indexable?: boolean;
 }
