@@ -8,6 +8,8 @@
 - `/manifest` webManifest({ name, shortName?, description?, id? = "/", startUrl? = "/", backgroundColor, themeColor, icons? = DEFAULT_ICONS }) → standalone, online-only
 - `/structured-data` <StructuredData data /> ; `/structured-data-graph` structuredDataGraph(...nodes)
 - `/share-image` shareImage(jsx, { width?, height?, fonts? }) → ImageResponse; SHARE_IMAGE_SIZE 1200x630
-- Peer deps: next, react. License: Sharadox Open Source License 0.1.0
+- `/app-icons` appIconFiles(svg, render, { tolerance? = 0.02 }) → files from one master (src/app/icon.svg: square, full-bleed background, mark centered at MARK_SHARE = 50% of the side): src/app/favicon.ico (16/32/48), src/app/apple-icon.png (180), public/icon-192.png, icon-512.png, icon-maskable-512.png (same picture: the mark is in the safe zone), profile-picture.png (1080); throws AppIconError when not square or the mark isn't 50%. Command: `app-icons [master]` (needs @resvg/resvg-js)
+- `/render-svg` renderSvg(svg, size) → { size, png, pixels } ; `/ico` icoFile([{ size, png }]) → .ico bytes
+- Peer deps: next, react, optional @resvg/resvg-js (app icons). License: Sharadox Open Source License 0.1.0
 - `/llms-text` llmsText({ title, summary, details?, sections: [{ title, lines, style?: "list" | "numbered" | "plain" }] }) → Markdown llms.txt
 - `/security-text` securityText({ contact (string or list), canonical, expires? = build + 1 year, preferredLanguages?, policy? }) → RFC 9116 text for /.well-known/security.txt
