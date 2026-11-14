@@ -1,7 +1,7 @@
 {
   "name": "@sharadox/metadata-web-library",
-  "version": "0.3.0",
-  "description": "Everything search engines, share cards and installation need: page metadata, sitemaps, robots rules, web app manifests, JSON-LD structured data and share images for Next.js.",
+  "version": "0.4.0",
+  "description": "Everything search engines, share cards and installation need: page metadata, sitemaps, robots rules, web app manifests, app icons from one master, JSON-LD structured data and share images for Next.js.",
   "private": false,
   "license": "SEE LICENSE IN LICENCA.md",
   "author": "Sharadox <contact@sharadox.com>",
@@ -62,6 +62,7 @@
   },
   "homepage": "https://github.com/Sharadox/metadata-web-library#readme",
   "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "@sharadox/es-lint-configuration-web-library": "^0.1.1",
     "@sharadox/prettier-configuration-web-library": "^0.1.0",
     "@sharadox/turborepo-configuration-web-library": "^0.1.0",
@@ -91,6 +92,15 @@
   },
   "peerDependencies": {
     "next": ">=16",
-    "react": ">=19"
+    "react": ">=19",
+    "@resvg/resvg-js": ">=2"
+  },
+  "bin": {
+    "app-icons": "./distribution/app-icons/entry/index.js"
+  },
+  "peerDependenciesMeta": {
+    "@resvg/resvg-js": {
+      "optional": true
+    }
   }
 }
