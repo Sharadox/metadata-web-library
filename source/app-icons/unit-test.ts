@@ -1,5 +1,11 @@
 import { expect, test } from "vitest";
-import { AppIconError, appIconFiles, MARK_SHARE, markShare } from "@sharadox/metadata-web-library/app-icons";
+import {
+  AppIconError,
+  appIconFiles,
+  MARK_SHARE,
+  markShare,
+  withoutBackground,
+} from "@sharadox/metadata-web-library/app-icons";
 import { renderSvg } from "@sharadox/metadata-web-library/render-svg";
 
 /** A black square with a white mark `share` of its side wide (and half as tall), centered. */
@@ -39,4 +45,21 @@ test("measures the mark against the background, and finds none on a plain image"
   expect(markShare(plain.pixels, plain.size)).toBe(0);
   const marked = renderSvg(master(0.5), 200);
   expect(markShare(marked.pixels, marked.size)).toBeCloseTo(0.5, 2);
+});
+
+test("measures the mark without a textured background, when the background is marked", () => {
+  // A background that changes from corner to corner: a gradient, and a darker sheet over it.
+  const textured = (marked: boolean) =>
+    master(MARK_SHARE).replace(
+      '<rect width="100" height="100" fill="#000"/>',
+      `<g${marked ? ' id="background"' : ""}><defs><linearGradient id="g"><stop offset="0" stop-color="#222"/>` +
+        '<stop offset="1" stop-color="#a80"/></linearGradient></defs><rect width="100" height="100" fill="url(#g)"/>' +
+        '<rect width="100" height="100" fill="#000" fill-opacity="0.3"/></g>',
+    );
+  expect(appIconFiles(textured(true), renderSvg)).toHaveLength(6);
+  expect(() => appIconFiles(textured(false), renderSvg)).toThrow(AppIconError);
+  expect(withoutBackground('<svg><image id="background" href="x.jpg"/><path d="M0 0"/></svg>')).toBe(
+    '<svg><path d="M0 0"/></svg>',
+  );
+  expect(withoutBackground(master(MARK_SHARE))).toBe(master(MARK_SHARE));
 });
