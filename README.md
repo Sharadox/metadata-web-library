@@ -61,7 +61,7 @@ export default async function Image() {
 One master makes every icon. It is `src/app/icon.svg`, which Next.js also serves as the SVG favicon:
 
 - a square `viewBox`
-- a full-bleed background (no rounded corners; each platform applies its own mask)
+- a full-bleed background (no rounded corners; each platform applies its own mask). A background that isn't one flat color (a texture, a photo) goes in an element with `id="background"`, which is left out while the mark is measured
 - the mark centered, its larger side **half** of the icon's side
 
 With the mark in the middle half, it stays clear of every mask (circles, rounded squares, and the maskable safe zone, a circle 80% wide), so the same picture serves as the favicon, the home screen icon, the maskable icon and the social profile picture.

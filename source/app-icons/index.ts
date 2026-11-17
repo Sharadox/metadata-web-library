@@ -14,6 +14,9 @@ export const MASTER_PATH = "src/app/icon.svg";
 /** Sizes measured: the mark is found at this size. */
 const MEASURE_SIZE = 512;
 
+/** A background that isn't one flat color (a photo, a texture) goes in an element with this id; it's left out while the
+ * mark is measured. */
+export const BACKGROUND_ID = "background";
 /** Why a master can't make an app icon set. */
 export class AppIconError extends Error {
   override name = "AppIconError";
@@ -50,8 +53,16 @@ export function markShare(pixels: Uint8Array, size: number): number {
 }
 
 /**
+ * The master without its marked background (the element with `id="background"`, see `BACKGROUND_ID`), so only the
+ * mark is left to measure. Masters with a plain background are returned as they are.
+ */
+export function withoutBackground(svg: string) {
+  return svg.replace(new RegExp(`<(\\w+)\\b[^>]*\\bid="${BACKGROUND_ID}"[^>]*?(?:/>|>[\\s\\S]*?</\\1>)`), "");
+}
+/**
  * Every app icon a site needs, made from one master: a square SVG with a full-bleed background and the mark taking
- * half of its side, centered (`MARK_SHARE`). The master stays `src/app/icon.svg`; from it come
+ * half of its side, centered (`MARK_SHARE`). A background that isn't one flat color (a texture, a photo) goes in an
+ * element with `id="background"`, so the mark can still be measured. The master stays `src/app/icon.svg`; from it come
  *
  * - `src/app/favicon.ico` (16, 32 and 48 pixels)
  * - `src/app/apple-icon.png` (180 pixels, the home screen icon on iPhone and iPad)
@@ -67,7 +78,8 @@ export function appIconFiles(svg: string, render: RenderSvg, { tolerance = 0.02 
   const box = viewBox(svg);
   if (!box || box[0] !== box[1])
     throw new AppIconError("The master must be a square SVG, with a viewBox as wide as it is tall.");
-  const measured = render(svg, MEASURE_SIZE);
+  // A textured background would count as the mark everywhere; measure the mark without it.
+  const measured = render(withoutBackground(svg), MEASURE_SIZE);
   const share = markShare(measured.pixels, measured.size);
   if (Math.abs(share - MARK_SHARE) > tolerance)
     throw new AppIconError(
