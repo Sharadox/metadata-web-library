@@ -1,7 +1,8 @@
 /**
  * The images a brand posts on social media (banners, stories, profile covers), beside the profile picture the app
  * icon tool makes: the same background and mark, landscape (16:9) and portrait (9:16), each also with the site's
- * headline; the background alone; and the landscape headline as a small rounded card for emails. Each says whether
+ * headline; the background alone, landscape, portrait and square; and the landscape headline as a small rounded card
+ * for emails. Each says whether
  * it carries the `mark` and the `headline`, and its corners' `radius` (the rest is transparent). Sites draw the
  * smaller ones in proportion (`socialImageScale`). The mark takes half of the image's shorter side, as on the profile picture (`MARK_SHARE`).
  *
@@ -13,8 +14,10 @@ export const SOCIAL_IMAGES = {
   "portrait.png": { width: 1080, height: 1920, mark: true, headline: false, radius: 0 },
   "landscape-headline.png": { width: 1920, height: 1080, mark: true, headline: true, radius: 0 },
   "portrait-headline.png": { width: 1080, height: 1920, mark: true, headline: true, radius: 0 },
-  /** The background alone, with nothing on it, to build other images on. */
-  "background.png": { width: 1920, height: 1080, mark: false, headline: false, radius: 0 },
+  /** The background alone, with nothing on it, to build other images on: landscape, portrait and square. */
+  "background-landscape.png": { width: 1920, height: 1080, mark: false, headline: false, radius: 0 },
+  "background-portrait.png": { width: 1080, height: 1920, mark: false, headline: false, radius: 0 },
+  "background-square.png": { width: 1080, height: 1080, mark: false, headline: false, radius: 0 },
   /** The landscape headline, 256 pixels wide with slightly rounded corners, as a card to put in emails. */
   "email-card.png": { width: 256, height: 144, mark: true, headline: true, radius: 12 },
 } as const;

@@ -6,18 +6,21 @@ import {
   socialMarkSize,
 } from "@sharadox/metadata-web-library/social-image";
 
-test("has a landscape and a portrait image, each with and without the headline, the background alone, and a card", () => {
+test("has a landscape and a portrait image, each with and without the headline, the background alone in three shapes, and a card", () => {
   expect(Object.keys(SOCIAL_IMAGES)).toEqual([
     "landscape.png",
     "portrait.png",
     "landscape-headline.png",
     "portrait-headline.png",
-    "background.png",
+    "background-landscape.png",
+    "background-portrait.png",
+    "background-square.png",
     "email-card.png",
   ]);
   const { "email-card.png": card, ...full } = SOCIAL_IMAGES;
-  for (const image of Object.values(full)) expect(image.width * image.height).toBe(1920 * 1080);
-  expect(SOCIAL_IMAGES["background.png"]).toMatchObject({ mark: false, headline: false });
+  for (const image of Object.values(full)) expect(Math.min(image.width, image.height)).toBe(1080);
+  expect(SOCIAL_IMAGES["background-landscape.png"]).toMatchObject({ mark: false, headline: false });
+  expect(SOCIAL_IMAGES["background-square.png"]).toMatchObject({ width: 1080, height: 1080, mark: false });
   expect(card).toEqual({ width: 256, height: 144, mark: true, headline: true, radius: 12 });
 });
 
