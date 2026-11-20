@@ -14,6 +14,4 @@
 - Peer deps: next, react, optional @resvg/resvg-js (app icons). License: Sharadox Open Source License 0.1.0
 - `/llms-text` llmsText({ title, summary, details?, sections: [{ title, lines, style?: "list" | "numbered" | "plain" }] }) → Markdown llms.txt
 - `/security-text` securityText({ contact (string or list), canonical, expires? = build + 1 year, preferredLanguages?, policy? }) → RFC 9116 text for /.well-known/security.txt
-
-- 0.7.0: SOCIAL_IMAGES adds background.png (the background alone) and email-card.png (the landscape headline, 256 by 144, corners rounded 12 px); every image says mark and radius; socialImageScale
-- 0.8.0: the background alone in three shapes: background-landscape.png (was background.png), background-portrait.png 1080×1920 and background-square.png 1080×1080
+- Changes by version: CHANGELOG.md (in the package)
