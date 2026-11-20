@@ -1,6 +1,6 @@
 {
   "name": "@sharadox/metadata-web-library",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "Everything search engines, share cards and installation need: page metadata, sitemaps, robots rules, web app manifests, app icons from one master, JSON-LD structured data and share images for Next.js.",
   "private": false,
   "license": "SEE LICENSE IN LICENCA.md",
@@ -95,7 +95,8 @@
     "@resvg/resvg-js": ">=2"
   },
   "bin": {
-    "app-icons": "./distribution/app-icons/entry/index.js"
+    "application-icons": "./distribution/application-icons/entry/index.js",
+    "app-icons": "./distribution/application-icons/entry/index.js"
   },
   "peerDependenciesMeta": {
     "@resvg/resvg-js": {
