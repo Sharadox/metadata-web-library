@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/metadata-web-library`, newest first.
 
+## 0.10.0
+
+`route`: handlers for the files every site serves (llms.txt, LICENSE.md, security.txt, social images, share images), so each site's route file keeps only its segment settings.
+
 ## 0.9.0
 
 `app-icons` is renamed `application-icons` (no abbreviations): `applicationIconFiles`, `ApplicationIconError`, `ApplicationIconFile`, `ApplicationIconOptions`, and the `application-icons` command. The old path, names and command stay until the next minor version.
