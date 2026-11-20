@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/metadata-web-library`, newest first.
 
+## 0.9.0
+
+`app-icons` is renamed `application-icons` (no abbreviations): `applicationIconFiles`, `ApplicationIconError`, `ApplicationIconFile`, `ApplicationIconOptions`, and the `application-icons` command. The old path, names and command stay until the next minor version.
+
 ## 0.8.2
 
 No side effects declared (the package ships no stylesheets), so bundlers drop what isn't used.
