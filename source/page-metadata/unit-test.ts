@@ -23,7 +23,7 @@ describe("pageMetadata", () => {
       appleWebApp: { title: "Sharadox", statusBarStyle: "black-translucent" },
       keywords: ["brand"],
       alternates: { canonical: "/pt", languages: { en: "/en", pt: "/pt", "x-default": "/en" } },
-      openGraph: { type: "website", url: "/pt", locale: "pt_PT", alternateLocale: ["en_GB"], siteName: "Sharadox" },
+      openGraph: { type: "website", url: "/pt", locale: "pt_PT", alternateLocale: ["en_US"], siteName: "Sharadox" },
       twitter: { card: "summary_large_image", title: "Sharadox · Simple" },
       robots: { index: true, follow: true },
       formatDetection: { telephone: false },
