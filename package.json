@@ -1,6 +1,6 @@
 {
   "name": "@sharadox/metadata-web-library",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Everything search engines, share cards and installation need: page metadata, sitemaps, robots rules, web app manifests, app icons from one master, JSON-LD structured data and share images for Next.js.",
   "private": false,
   "license": "SEE LICENSE IN LICENCA.md",
@@ -87,12 +87,13 @@
   },
   "dependencies": {
     "@sharadox/internationalization-web-library": "^0.2.3",
+    "@sharadox/luis-pires-decor-web-application": "file:/tmp/link-local-MWq73D/sharadox-luis-pires-decor-web-application-0.1.0.tgz",
     "@sharadox/web-library": "^0.8.0"
   },
   "peerDependencies": {
+    "@resvg/resvg-js": ">=2",
     "next": ">=16",
-    "react": ">=19",
-    "@resvg/resvg-js": ">=2"
+    "react": ">=19"
   },
   "bin": {
     "application-icons": "./distribution/application-icons/entry/index.js",
