@@ -21,12 +21,20 @@ test("has a landscape and a portrait image, each with and without the headline, 
   for (const image of Object.values(full)) expect(Math.min(image.width, image.height)).toBe(1080);
   expect(SOCIAL_IMAGES["background-landscape.png"]).toMatchObject({ mark: false, headline: false });
   expect(SOCIAL_IMAGES["background-square.png"]).toMatchObject({ width: 1080, height: 1080, mark: false });
-  expect(card).toEqual({ width: 256, height: 144, mark: true, headline: true, radius: 12 });
+  // Drawn at three times the size it is shown at, so it stays sharp on high-density screens.
+  expect(card).toEqual({
+    width: 768,
+    height: 432,
+    mark: true,
+    headline: true,
+    radius: 36,
+    display: { width: 256, height: 144 },
+  });
 });
 
 test("draws the smaller images in proportion", () => {
   expect(socialImageScale(SOCIAL_IMAGES["portrait.png"])).toBe(1);
-  expect(socialImageScale(SOCIAL_IMAGES["email-card.png"])).toBeCloseTo(2 / 15);
+  expect(socialImageScale(SOCIAL_IMAGES["email-card.png"])).toBeCloseTo(2 / 5);
 });
 
 test("draws the mark at half the shorter side: the height of a landscape image, the width of a portrait one", () => {
