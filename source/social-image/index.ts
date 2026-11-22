@@ -18,11 +18,21 @@ export const SOCIAL_IMAGES = {
   "background-landscape.png": { width: 1920, height: 1080, mark: false, headline: false, radius: 0 },
   "background-portrait.png": { width: 1080, height: 1920, mark: false, headline: false, radius: 0 },
   "background-square.png": { width: 1080, height: 1080, mark: false, headline: false, radius: 0 },
-  /** The landscape headline, 256 pixels wide with slightly rounded corners, as a card to put in emails. */
-  "email-card.png": { width: 256, height: 144, mark: true, headline: true, radius: 12 },
+  /**
+   * The landscape headline as a card to put in emails (an email signature), with slightly rounded corners: drawn at
+   * three times the size it is shown at (`display`, 256 by 144), so it stays sharp on phones and high-density screens.
+   */
+  "email-card.png": {
+    width: 768,
+    height: 432,
+    mark: true,
+    headline: true,
+    radius: 36,
+    display: { width: 256, height: 144 },
+  },
 } as const;
 
-/** How much smaller than the full-size images one is drawn (1 for those, 2/15 for the email card). */
+/** How much smaller than the full-size images one is drawn (1 for those, 2/5 for the email card). */
 export function socialImageScale({ width, height }: { width: number; height: number }) {
   return Math.min(width, height) / 1080;
 }
