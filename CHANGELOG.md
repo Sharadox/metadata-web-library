@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/metadata-web-library`, newest first.
 
+## 0.11.1
+
+Workflows from git-hub-action-library v0.2.2: npm Trusted Publishing only
+
 ## 0.11.0
 
 The email card is drawn at three times the size it is shown at (768 by 432, `display` 256 by 144), so it stays sharp in email signatures on phones and high-density screens.
